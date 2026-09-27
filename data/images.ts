@@ -52,6 +52,7 @@ import swimSplash from "@/public/images/swim-splash.jpg";
 import podium from "@/public/images/podium.jpg";
 import poster5150 from "@/public/images/poster-5150.jpg";
 import posterRaceDay from "@/public/images/poster-race-day.jpg";
+import ironmanCebuGraphic from "@/public/images/ironman-cebu-graphic.jpg";
 import swimCaps from "@/public/images/swim-caps.jpg";
 import kayakSwim from "@/public/images/kayak-swim.jpg";
 import finishMedalArch from "@/public/images/finish-medal-arch.jpg";
@@ -147,5 +148,6 @@ export const images = {
 
   podium: { src: podium, alt: "Two athletes on the podium at the Adlaw sa Kublan Aquathlon", tags: [] },
   poster5150: { src: poster5150, alt: "Fat Fueled athletes featured on a 5150 Triathlon race graphic", tags: [] },
+  ironmanCebuGraphic: { src: ironmanCebuGraphic, alt: "Fat Fueled athletes featured on an IRONMAN 70.3 Lapu-Lapu Cebu race graphic", tags: [], position: "25% 50%" },
   posterRaceDay: { src: posterRaceDay, alt: "Fat Fueled race-day graphic for a swim-bike-run event in Bohol", tags: [] },
 } satisfies Record<string, Photo>;

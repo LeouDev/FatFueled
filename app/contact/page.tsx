@@ -34,7 +34,7 @@ export default function ContactPage() {
         </Reveal>
         <Reveal delay={0.5} className="mt-12 hidden lg:block">
           <figure className="relative max-w-sm">
-            <Photo photo={images.medalTrio} sizes="30vw" className="aspect-[4/5]" />
+            <Photo photo={images.ironmanCebuGraphic} sizes="30vw" className="aspect-[4/5]" />
             <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 to-transparent p-5 pt-16">
               <p className="eyebrow flex items-center gap-2 text-white/80">
                 <InstagramIcon className="size-4" /> Prefer DMs?
