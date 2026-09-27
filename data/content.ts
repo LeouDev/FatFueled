@@ -23,12 +23,8 @@ export const coachingPillars = [
   { title: "Race preparation", text: "Pacing, fueling and race-day logistics rehearsed long before the start line." },
 ];
 
-/** Coaching packages have not been supplied yet — never invent pricing. */
-export const packages = [
-  { name: "[Package placeholder]", detail: "Details coming soon" },
-  { name: "[Package placeholder]", detail: "Details coming soon" },
-  { name: "[Package placeholder]", detail: "Details coming soon" },
-];
+/** Add the client's real coaching packages here (never invent pricing). While empty, the page shows "Coming soon". */
+export const packages: { name: string; detail: string }[] = [];
 
 export const communityValues = ["Community", "Accountability", "Friendship", "Shared goals", "Race-day energy"];
 

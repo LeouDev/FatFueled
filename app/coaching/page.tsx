@@ -72,22 +72,41 @@ export default function CoachingPage() {
             />
             <Placeholder className="self-start lg:self-end">Packages & pricing to be supplied</Placeholder>
           </div>
-          <ul className="mt-14 grid gap-3 md:grid-cols-3 lg:mt-20 lg:gap-4">
-            {packages.map((pkg, i) => (
-              <li key={i}>
-                <Reveal delay={i * 0.08} className="flex h-full min-h-80 flex-col justify-between border border-dashed border-white/20 p-8">
-                  <span className="eyebrow tabular-nums text-accent">Option 0{i + 1}</span>
-                  <div>
-                    <h3 className="headline text-4xl text-white/85">{pkg.name}</h3>
-                    <p className="mt-3 text-white/55">{pkg.detail}</p>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-          <Reveal className="mt-12">
-            <ButtonLink href="/contact">Ask about coaching</ButtonLink>
-          </Reveal>
+          {packages.length > 0 ? (
+            <>
+              <ul className="mt-14 grid gap-3 md:grid-cols-3 lg:mt-20 lg:gap-4">
+                {packages.map((pkg, i) => (
+                  <li key={pkg.name}>
+                    <Reveal delay={i * 0.08} className="flex h-full min-h-80 flex-col justify-between border border-white/10 bg-ink p-8">
+                      <span className="eyebrow tabular-nums text-accent">Option 0{i + 1}</span>
+                      <div>
+                        <h3 className="headline text-4xl">{pkg.name}</h3>
+                        <p className="mt-3 text-white/65">{pkg.detail}</p>
+                      </div>
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+              <Reveal className="mt-12">
+                <ButtonLink href="/contact">Ask about coaching</ButtonLink>
+              </Reveal>
+            </>
+          ) : (
+            <Reveal className="mt-14 flex flex-col gap-8 border border-white/10 bg-ink p-8 sm:p-12 lg:mt-20 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p className="headline text-4xl sm:text-5xl">
+                  Coming soon<span className="text-accent">.</span>
+                </p>
+                <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/70">
+                  Coaching plans and pricing are being finalized. In the meantime, get in touch and we&apos;ll talk
+                  through what fits your goals.
+                </p>
+              </div>
+              <ButtonLink href="/contact" className="self-start lg:self-auto">
+                Ask about coaching
+              </ButtonLink>
+            </Reveal>
+          )}
         </div>
       </section>
 

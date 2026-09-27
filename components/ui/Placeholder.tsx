@@ -1,8 +1,9 @@
 import { PenLine } from "lucide-react";
 import type { ReactNode } from "react";
 
-/** Flags content still waiting on the client. Remove each one as real content lands. */
+/** Flags content still waiting on the client. Shown in `npm run dev` only, so the live site stays clean. */
 export function Placeholder({ children, className = "" }: { children: ReactNode; className?: string }) {
+  if (process.env.NODE_ENV === "production") return null;
   return (
     <span
       title="Placeholder — replace before launch"

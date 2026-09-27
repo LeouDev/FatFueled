@@ -33,11 +33,11 @@ npm run build
 
 ## Before launch: placeholders to replace
 
-Anything still waiting on the client shows a dashed **✎ placeholder** tag on the page (`components/ui/Placeholder.tsx`):
+Anything still waiting on the client shows a dashed **✎ placeholder** tag while running `npm run dev` (hidden on the live site; `components/ui/Placeholder.tsx`):
 
 - **Coach bio:** `coach.bio` in `data/site.ts`. Set `bioPlaceholder: false` once it's final.
 - **Coach portrait:** `coach.photo` currently uses a coaching-session photo.
-- **Coaching packages & pricing:** `packages` in `data/content.ts` (no pricing has been invented).
+- **Coaching packages & pricing:** `packages` in `data/content.ts` (empty, so the page shows "Coming soon"; no pricing has been invented).
 - **Athlete testimonials:** `testimonials` in `data/athletes.ts`. Real quotes only; the section shows "Coming soon" until then.
 
 ## Contact form → email
