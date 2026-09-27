@@ -51,6 +51,6 @@ export const aboutSections = [
     number: "04",
     title: "The community",
     text: "Early rides, open-water swims, track sessions and finish lines. Endurance is an individual pursuit, but the journey doesn't have to be.",
-    photo: images.nightCrew,
+    photo: images.groupSelfie,
   },
 ];

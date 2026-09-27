@@ -42,6 +42,7 @@ import testingTrainer from "@/public/images/testing-trainer.jpg";
 import runnerHat from "@/public/images/runner-hat.jpg";
 import aeroRide from "@/public/images/aero-ride.jpg";
 import nightCrew from "@/public/images/night-crew.jpg";
+import groupSelfie from "@/public/images/group-selfie.jpg";
 import medalTrio from "@/public/images/medal-trio.jpg";
 import finisherMedal from "@/public/images/finisher-medal.jpg";
 import stadiumCrew from "@/public/images/stadium-crew.jpg";
@@ -130,6 +131,7 @@ export const images = {
   testingTrainer: { src: testingTrainer, alt: "Athlete riding a road bike on an indoor trainer during a testing session", tags: ["training", "cycling"] },
   aeroRide: { src: aeroRide, alt: "Triathlete in a Fat Fueled Multisport kit riding on aero bars during a race", tags: ["cycling", "triathlon", "race-day"], position: "50% 10%" },
   runnerHat: { src: runnerHat, alt: "Runner in a sun hat and sleeveless trisuit running along a tree-lined road", tags: ["running", "race-day"] },
+  groupSelfie: { src: groupSelfie, alt: "Smiling Fat Fueled cyclists in helmets and sunglasses taking a group selfie before a ride", tags: ["community", "cycling", "training"], position: "50% 60%" },
   nightCrew: { src: nightCrew, alt: "Five friends in running gear posing together under palm trees at night", tags: ["community", "running"] },
   medalTrio: { src: medalTrio, alt: "Three athletes in matching pink shirts showing their medals by the sea", tags: ["community", "race-day"] },
   finisherMedal: { src: finisherMedal, alt: "Smiling athlete in a trisuit wearing a finisher's medal after a race", tags: ["race-day", "triathlon"] },
