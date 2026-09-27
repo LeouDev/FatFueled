@@ -39,8 +39,16 @@ Anything still waiting on the client shows a dashed **✎ placeholder** tag on t
 - **Coach portrait:** `coach.photo` currently uses a coaching-session photo.
 - **Coaching packages & pricing:** `packages` in `data/content.ts` (no pricing has been invented).
 - **Athlete testimonials:** `testimonials` in `data/athletes.ts`. Real quotes only; the section shows "Coming soon" until then.
-- **Contact form backend:** `submitContact()` in `lib/contact.ts` only logs. Wire it to an email or form service.
+
+## Contact form → email
+
+Submissions go through a server action (`app/contact/actions.ts`). It re-validates the form (`lib/contact.ts`), drops bots via a hidden honeypot field, and sends a branded HTML + plain-text email (`lib/contact-email.ts`) through [Brevo](https://www.brevo.com)'s transactional API. The visitor's address is set as reply-to, so hitting **Reply** answers them directly.
 
 ## Environment
 
-- `NEXT_PUBLIC_SITE_URL` sets the production URL used for canonical links, Open Graph, `sitemap.xml` and `robots.txt`. On Vercel it falls back to the project's production domain.
+| Variable | Purpose |
+| --- | --- |
+| `BREVO_API_KEY` | Brevo v3 API key (Brevo → SMTP & API → API Keys). |
+| `CONTACT_TO_EMAIL` | Inbox that receives enquiries. Kept out of the repo on purpose. |
+| `CONTACT_FROM_EMAIL` | Sender address verified in Brevo (Senders & IPs → Senders). Switch to an address on your own domain once you have one, for better deliverability. |
+| `NEXT_PUBLIC_SITE_URL` | Optional production URL for canonical links, Open Graph, sitemap and robots, and the email's logo/links. On Vercel it falls back to the production domain. |
