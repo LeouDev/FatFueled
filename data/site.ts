@@ -34,8 +34,7 @@ export const coach = {
   credential: "UESCA Certified Coach",
   bio: "Coaching is about more than putting miles on the clock. It's about understanding the athlete, building consistency and creating a process that can be sustained.",
   bioPlaceholder: true,
-  // Replace with a portrait of the coach when available.
-  photo: images.coachSession,
+  photo: images.coachLee,
 };
 
 export function pageMeta(title: string, description: string, path: string): Metadata {

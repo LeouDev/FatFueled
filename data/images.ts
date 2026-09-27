@@ -12,6 +12,7 @@ import runnerOrange from "@/public/images/runner-orange.jpg";
 import nightRun from "@/public/images/night-run.jpg";
 import testingFingertip from "@/public/images/testing-fingertip.jpg";
 import coachSession from "@/public/images/coach-session.jpg";
+import coachLee from "@/public/images/coach-lee.jpg";
 import finishCongrats from "@/public/images/finish-congrats.jpg";
 import morningRide from "@/public/images/morning-ride.jpg";
 import t1Beach from "@/public/images/t1-beach.jpg";
@@ -93,6 +94,7 @@ export const images = {
   runnerOrange: { src: runnerOrange, alt: "Runner in an orange-and-white kit gesturing to the camera mid-race", tags: ["running", "race-day"], position: "50% 35%" },
   nightRun: { src: nightRun, alt: "Runner giving a thumbs-up on a dark road during a night race", tags: ["running", "race-day"], position: "60% 50%" },
   testingFingertip: { src: testingFingertip, alt: "Gloved hands taking a fingertip sample from an athlete during a testing session", tags: ["training"] },
+  coachLee: { src: coachLee, alt: "Coach Lee Stephen Fat riding his road bike along a tree-lined road", tags: ["cycling", "training"], position: "50% 55%" },
   coachSession: { src: coachSession, alt: "A Fat Fueled session: fingertip testing on an athlete riding an indoor trainer", tags: ["training", "cycling"], position: "40% 30%" },
 
   finishCongrats: { src: finishCongrats, alt: "Triathlete in an orange-and-white kit jogging under a Congratulations banner at the finish", tags: ["race-day", "triathlon"] },

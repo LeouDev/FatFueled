@@ -39,7 +39,7 @@ export const aboutSections = [
     number: "02",
     title: "The coach",
     text: "Fat Fueled is led by UESCA Certified Coach Lee Stephen Fat. Coaching starts with understanding the athlete, then building a process that can be sustained.",
-    photo: images.testingTrainer,
+    photo: images.coachLee,
   },
   {
     number: "03",

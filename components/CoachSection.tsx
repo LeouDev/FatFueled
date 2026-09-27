@@ -14,7 +14,7 @@ export function CoachSection({ index }: { index?: string }) {
           <figure className="relative">
             <Photo photo={coach.photo} sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[4/5]" />
             <figcaption className="eyebrow absolute bottom-4 left-4 bg-ink/70 px-2.5 py-1.5 text-white/80 backdrop-blur-sm">
-              Coaching in action
+              Coach {coach.name}
             </figcaption>
           </figure>
         </Reveal>
