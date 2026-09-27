@@ -8,6 +8,7 @@ import triathlonChute from "@/public/images/triathlon-chute.jpg";
 import cyclingAero from "@/public/images/cycling-aero.jpg";
 import runningJungle from "@/public/images/running-jungle.jpg";
 import swimSunrise from "@/public/images/swim-sunrise.jpg";
+import swimRaceStart from "@/public/images/swim-race-start.jpg";
 import runnerOrange from "@/public/images/runner-orange.jpg";
 import nightRun from "@/public/images/night-run.jpg";
 import testingFingertip from "@/public/images/testing-fingertip.jpg";
@@ -89,6 +90,7 @@ export const images = {
   triathlonChute: { src: triathlonChute, alt: "Triathlete running down a finishing chute past an IRONMAN flag between city towers", tags: ["triathlon", "race-day"], position: "55% 50%" },
   cyclingAero: { src: cyclingAero, alt: "Cyclist in a pink-and-blue kit racing past green traffic cones", tags: ["cycling", "race-day"] },
   runningJungle: { src: runningJungle, alt: "Runner in a triathlon kit striding along a road lined with tropical trees", tags: ["running", "triathlon"], position: "50% 45%" },
+  swimRaceStart: { src: swimRaceStart, alt: "Open-water swimmers in caps and goggles sprinting into the sea at a race start", tags: ["swimming", "race-day"], position: "40% 50%" },
   swimSunrise: { src: swimSunrise, alt: "Open-water swimmers at sunrise beside large orange race buoys", tags: ["swimming", "race-day"] },
 
   runnerOrange: { src: runnerOrange, alt: "Runner in an orange-and-white kit gesturing to the camera mid-race", tags: ["running", "race-day"], position: "50% 35%" },

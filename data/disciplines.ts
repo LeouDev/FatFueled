@@ -40,7 +40,7 @@ export const disciplines: Discipline[] = [
     number: "04",
     title: "Swimming",
     description: "Improve efficiency, technique and endurance in the water.",
-    photo: images.swimSunrise,
+    photo: images.swimRaceStart,
     hero: images.heroSwimming,
   },
 ];
