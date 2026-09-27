@@ -45,7 +45,7 @@ export const aboutSections = [
     number: "03",
     title: "The philosophy",
     text: "Big performances are built long before race day. Show up, build, adapt — then perform when it matters.",
-    photo: images.runnerHat,
+    photo: images.aeroRide,
   },
   {
     number: "04",

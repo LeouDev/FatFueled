@@ -40,6 +40,7 @@ import dinnerCrew from "@/public/images/dinner-crew.jpg";
 import greenTrisuit from "@/public/images/green-trisuit.jpg";
 import testingTrainer from "@/public/images/testing-trainer.jpg";
 import runnerHat from "@/public/images/runner-hat.jpg";
+import aeroRide from "@/public/images/aero-ride.jpg";
 import nightCrew from "@/public/images/night-crew.jpg";
 import medalTrio from "@/public/images/medal-trio.jpg";
 import finisherMedal from "@/public/images/finisher-medal.jpg";
@@ -127,6 +128,7 @@ export const images = {
 
   greenTrisuit: { src: greenTrisuit, alt: "Close-up of a triathlete in a green trisuit mid-race", tags: ["triathlon", "race-day"] },
   testingTrainer: { src: testingTrainer, alt: "Athlete riding a road bike on an indoor trainer during a testing session", tags: ["training", "cycling"] },
+  aeroRide: { src: aeroRide, alt: "Triathlete in a Fat Fueled Multisport kit riding on aero bars during a race", tags: ["cycling", "triathlon", "race-day"], position: "50% 10%" },
   runnerHat: { src: runnerHat, alt: "Runner in a sun hat and sleeveless trisuit running along a tree-lined road", tags: ["running", "race-day"] },
   nightCrew: { src: nightCrew, alt: "Five friends in running gear posing together under palm trees at night", tags: ["community", "running"] },
   medalTrio: { src: medalTrio, alt: "Three athletes in matching pink shirts showing their medals by the sea", tags: ["community", "race-day"] },
