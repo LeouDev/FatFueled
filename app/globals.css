@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ink-2: #111111;
+  --color-ink-3: #1a1a1a;
+  --color-muted: #a3a3a3;
+  --color-navy: #26255f; /* logo navy: buttons, chips, fills */
+  --color-accent: #7c86e6; /* logo navy lightened: small text & hairlines on dark (6:1 on ink) */
+  --color-brand-blue: #57afe1;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 45s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-anton), Impact, "Arial Narrow Bold", sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-ink);
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Freeze the page behind the mobile menu / lightbox. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-navy);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 1680px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.005em;
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.75);
+}
+
+@utility link-underline {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.45s var(--ease-expo), color 0.3s;
+  &:hover,
+  &:focus-visible,
+  &[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------- Loader: pure CSS, plays once per hard page load ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--color-ink);
+  animation: loader-out 0.45s var(--ease-expo) 0.9s forwards;
+}
+.loader-bar {
+  transform-origin: left;
+  animation: loader-bar 0.9s var(--ease-expo) forwards;
+}
+@keyframes loader-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loader-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ---------- Film grain for cinematic sections ---------- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Hero slideshow ---------- */
+.hero-slide {
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity 1.4s var(--ease-expo),
+    transform 0s linear 1.4s;
+}
+.hero-slide[data-active="true"] {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 1.4s var(--ease-expo),
+    transform 8s var(--ease-expo);
+}
+.hero-progress {
+  animation: hero-progress 6.5s linear forwards;
+}
+.hero-paused .hero-progress {
+  animation-play-state: paused;
+}
+@keyframes hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.scroll-hint {
+  animation: scroll-hint 2.4s var(--ease-expo) infinite;
+}
+@keyframes scroll-hint {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+/* ---------- Hero image settle (1.05 → 1), starts at first paint ---------- */
+.hero-zoom {
+  animation: hero-zoom 2.6s var(--ease-expo) both;
+}
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.05);
+  }
+}
+
+/* ---------- Full-screen dialogs (mobile menu, lightbox) ---------- */
+.sheet {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: var(--color-ink);
+  opacity: 0;
+  transition:
+    opacity 0.45s var(--ease-expo),
+    display 0.45s allow-discrete,
+    overlay 0.45s allow-discrete;
+}
+.sheet[open] {
+  opacity: 1;
+}
+@starting-style {
+  .sheet[open] {
+    opacity: 0;
+  }
+}
+.sheet::backdrop {
+  background: transparent;
+}
+.sheet-item {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.6s var(--ease-expo),
+    transform 0.6s var(--ease-expo);
+  transition-delay: calc(var(--i, 0) * 55ms + 100ms);
+}
+.sheet[open] .sheet-item {
+  opacity: 1;
+  transform: none;
+}
+@starting-style {
+  .sheet[open] .sheet-item {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+
+/* ---------- Scroll-linked parallax (progressive enhancement, no JS) ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .parallax {
+      animation: parallax linear both;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes parallax {
+  from {
+    transform: translateY(-7%) scale(1.14);
+  }
+  to {
+    transform: translateY(7%) scale(1.14);
+  }
+}
+
+/* ---------- Custom "view" cursor for the photo journal ---------- */
+.journal-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.4;
+  transition:
+    opacity 0.3s,
+    scale 0.4s var(--ease-expo),
+    translate 0.18s var(--ease-expo);
+}
+.journal-cursor[data-visible="true"] {
+  opacity: 1;
+  scale: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .loader {
+    display: none;
+  }
+}
