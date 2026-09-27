@@ -101,7 +101,7 @@
   transition: background-size 0.45s var(--ease-expo), color 0.3s;
   &:hover,
   &:focus-visible,
-  &[aria-current="page"] {
+  &[aria-current] {
     background-size: 100% 1px;
   }
 }

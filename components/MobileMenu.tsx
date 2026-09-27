@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, type CSSProperties } from "react";
 import { Menu, X } from "lucide-react";
-import { site } from "@/data/site";
+import { currentAttr, site } from "@/data/site";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./ui/Button";
 import { InstagramIcon } from "./ui/InstagramIcon";
 
 /** Full-screen menu on a native <dialog>: focus trap, Esc-to-close and inert page for free. */
-export function MobileMenu() {
+export function MobileMenu({ activeHref }: { activeHref: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
   const close = () => dialog.current?.close();
@@ -49,8 +49,8 @@ export function MobileMenu() {
                   <Link
                     href={item.href}
                     onClick={close}
-                    aria-current={pathname === item.href ? "page" : undefined}
-                    className="headline flex items-baseline justify-between py-3 text-[clamp(2.75rem,13vw,4.5rem)] aria-[current=page]:text-accent"
+                    aria-current={currentAttr(item.href, activeHref)}
+                    className="headline flex items-baseline justify-between py-3 text-[clamp(2.75rem,13vw,4.5rem)] [&[aria-current]]:text-accent"
                   >
                     {item.label}
                     <span className="eyebrow tabular-nums text-white/55">0{i + 1}</span>

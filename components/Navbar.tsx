@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { site } from "@/data/site";
+import { currentAttr, site } from "@/data/site";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { ButtonLink } from "./ui/Button";
@@ -11,6 +11,7 @@ import { ButtonLink } from "./ui/Button";
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [inDisciplines, setInDisciplines] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -18,6 +19,19 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // "Disciplines" is a homepage section, not a page: it's current while the section crosses mid-screen.
+  useEffect(() => {
+    const section = document.getElementById("disciplines");
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => setInDisciplines(entry.isIntersecting), {
+      rootMargin: "-45% 0px -45% 0px",
+    });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  const activeHref = pathname === "/" && inDisciplines ? "/#disciplines" : pathname;
 
   return (
     <header
@@ -35,8 +49,8 @@ export function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className="link-underline py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 hover:text-white aria-[current=page]:text-accent"
+                aria-current={currentAttr(item.href, activeHref)}
+                className="link-underline py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 hover:text-white [&[aria-current]]:text-accent"
               >
                 {item.label}
               </Link>
@@ -50,7 +64,7 @@ export function Navbar() {
               {site.cta.label}
             </ButtonLink>
           </div>
-          <MobileMenu />
+          <MobileMenu activeHref={activeHref} />
         </div>
       </nav>
     </header>

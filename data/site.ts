@@ -24,6 +24,10 @@ export const site = {
   ],
 };
 
+/** aria-current for a nav link: "page" for real pages, "location" for an in-page section like /#disciplines. */
+export const currentAttr = (href: string, activeHref: string) =>
+  href === activeHref ? (href.includes("#") ? "location" : "page") : undefined;
+
 /** Flip bioPlaceholder off once the client supplies the coach's own bio. */
 export const coach = {
   name: "Lee Stephen Fat",
